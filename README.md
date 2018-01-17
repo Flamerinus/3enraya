@@ -1,9 +1,10 @@
 #Tres en raya
 [Click here to see it in action.](http://flamerinus.byethost7.com/3enraya/)
 ___
-This is a script that displays the "Algebraic identities" with a simple visual representation.
+This is the popular Tic-Tac-Toe (X & O) game, created with the use of the CSS grid and JavaScript.
+(Work in progress)
 
-Made while learning **JavaScript** and **CSS grid**.
+Made while learning **JavaScript** and the **CSS grid**.
 ___
 The important files are:
 + **index2.html**: Main html file containing all the elements: buttons, description. etc

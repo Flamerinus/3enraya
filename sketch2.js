@@ -9,24 +9,21 @@ function Celda(e,v){
 	this.e=e;
 	this.v=v;
 	}
-
 var juego=[];//array vacio donde meto las 9 celdas
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-juego.push(new Celda(true,"n"));
-
+for(var i=0;i<9;i++){
+	juego.push(new Celda(true,"n"));
+}
 
 function resetear() { //funcion que pone los valores de vacio a verdadero en todas las celdas, los colores, turnos etc, borra todo el canvas y vuelve a dibujar las lineas y los nuymeros.
-var juego=[];
-document.getElementById("turnojugador").style="color:darkgreen;";
-document.getElementById("turnojugador").innerHTML="Turno del jugador 1";
+juego=[];
+for(var i=0;i<9;i++){
+	juego.push(new Celda(true,"n"));
+	document.getElementById("cell"+i).innerHTML = ""
 }
+//document.getElementById("turnojugador").style="color:darkgreen;";
+//document.getElementById("turnojugador").innerHTML="Turno del jugador 1";
+}
+
 function clickerino(n){
 	if(juego[n].e==true){
 		switch(turno){
@@ -53,7 +50,7 @@ function clickerino(n){
 	 	 juego[1].v== "x" && juego[4].v=="x" && juego[7].v=="x" ||
 		 juego[6].v== "x" && juego[7].v=="x" && juego[8].v=="x" ||
 		 juego[3].v== "x" && juego[4].v=="x" && juego[5].v=="x"){
-		setTimeout(function(){ alert("Ganador X"); }, 100);
+		setTimeout(function(){ alert("Ganador X");resetear(); }, 100);
 	}else if(juego[0].v== "o" && juego[1].v=="o" && juego[2].v=="o" ||
 					 juego[0].v== "o" && juego[3].v=="o" && juego[6].v=="o" ||
 				 	 juego[0].v== "o" && juego[4].v=="o" && juego[8].v=="o" ||
@@ -62,6 +59,6 @@ function clickerino(n){
 				 	 juego[1].v== "o" && juego[4].v=="o" && juego[7].v=="o" ||
 					 juego[6].v== "o" && juego[7].v=="o" && juego[8].v=="o" ||
 					 juego[3].v== "o" && juego[4].v=="o" && juego[5].v=="o") {
-		setTimeout(function(){ alert("Ganador O"); }, 100);
+		setTimeout(function(){ alert("Ganador O");resetear();}, 100);
 	}
 }
