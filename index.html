@@ -5,33 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script type="text/javascript" src="sketch2.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
   <title id="title">3 en raya</title>
   <style>
+    .container{
+      display:flex;
+      width: 100%;
+      justify-content: center;
+    }
+    .container *{
+box-sizing: border-box;
+    }
     .wrapper{
+      padding: 1em;
       display:grid;
+      height: min-content;
+      width: min-content;
       justify-items: center;
-      align-items: center;
-      height: fill;
+      align-content: center;
+      grid-auto-columns: 1fr;
       background-color: #999683;
-      grid-template-columns: 1fr 200px 1fr 200px 1fr ;
-      grid-template-rows:100px auto 1fr 100px;
-      grid-template-areas: ".izquierda titulo derecha."
-                           ".izquierda text derecha."
-                           ".izquierda game derecha."
-                           ".izquierda game derecha."
-                           ".foot      foot    foot."
+      grid-template-areas: "gametitle"
+                           "texto"
+                           "game"
+                           "footer"
       }
     .game{
       background-color: #f9bd03;
       display: grid;
-      grid-gap: 1em;
-      grid-auto-columns: 100px;
-      grid-auto-rows: 100px;
+      grid-gap: 16px;
       grid-template-columns: 1fr 1fr 1fr;
       width: min-content;
       height: min-content;
       grid-area: game;
-
       }
     .game > div{
       text-align: center;
@@ -42,91 +48,77 @@
       font-family: sans-serif;
       font-size: 100px;
       }
-    .izquierda{
-      width: 100%;
-      height: 100%;
-      background-color: #407026;
-      grid-area: izquierda;
-      width: 200px;
-      justify-self: end;
 
-    }
-    .derecha{
-      width: 100%;
-      height: 100%;
-      background-color: #e34a06;
-      grid-area: derecha;
-      width: 200px;
-      justify-self: start;
-
-    }
     .gametitle{
-      background-color: blue;
-      width: 100%;
-      height: 100px;
-      align-self: start;
-      grid-area: titulo;
+      background-color: #f9bd03;
+      grid-area: gametitle;
       text-align: center;
-      line-height: 100px;
+      line-height:75px;
+      width: 100%;
       font-family: sans-serif;
       font-size: 50px;
+      height: 75px;
     }
-    .footer{
-      background-color: red;
-      width: 100%;
-      height: 100px;
-      align-self: end;
-      grid-area: foot;
-      width: 100%;
-    }
-    .text{
-      background-color: yellow;
-      width: 100%;
+    .texto{
+      background-color: #e34a06;
       height: min-content;
-      align-self: center;
-      grid-area: text;
+      grid-area: texto;
       text-align: center;
       font-family: sans-serif;
+      font-size: 30px;
+      height: auto;
+      width: 100%;
+      padding: 10px;
+      margin: 10px;
+    }
+    #trem{
+      animation-iteration-count: 3;
+      animation-duration: 1s;
+    }
+    .footer{
+      grid-area: footer;
+      background-color: #31cce8;
+      height: min-content;
+      font-family: sans-serif;
+      width: 100%;
       font-size: auto;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-<div class="wrapper">
-  <div class="izquierda">
-  </div>
-  <div class="gametitle">
-Tres en raya
-  </div>
-  <div class="game">
-    <div id="cell0"onclick="clickerino(0)">
-    </div>
-    <div id="cell1"onclick="clickerino(1)">
-    </div>
-    <div id="cell2"onclick="clickerino(2)">
-    </div>
-    <div id="cell3"onclick="clickerino(3)">
-    </div>
-    <div id="cell4"onclick="clickerino(4)">
-    </div>
-    <div id="cell5"onclick="clickerino(5)">
-    </div>
-    <div id="cell6"onclick="clickerino(6)">
-    </div>
-    <div id="cell7"onclick="clickerino(7)">
-    </div>
-    <div id="cell8"onclick="clickerino(8)">
-    </div>
-  </div>
-  <div class="derecha">
-  </div>
-  <div class="footer">
-
-  </div>
-  <div class="text">
-Player 1 starts with "X" and the game ends when all the tiles have beed clicked.<br>
-It can end in victory for one of the players or a draw.<br>
-In both cases the game will reset after that.
+  <div class="container">
+    <div class="wrapper">
+        <div class="gametitle">
+    Tic-Tac-Toe
+      </div>
+      <div class="texto" id="texto">
+    <div id="trem">Play!</div>
+      </div>
+      <div class="game">
+        <div id="cell0"onclick="clickerino(0)" class="animated bounceInLeft"style="animation-duration: 0.4s;">
+        </div>
+        <div id="cell1"onclick="clickerino(1)"class="animated fadeInDown"style="animation-duration: 0.5s;">
+        </div>
+        <div id="cell2"onclick="clickerino(2)"class="animated bounceInRight"style="animation-duration: 0.6s;">
+        </div>
+        <div id="cell3"onclick="clickerino(3)"class="animated fadeInLeft"style="animation-duration: 0.3s;">
+        </div>
+        <div id="cell4"onclick="clickerino(4)"class="animated zoomIn"style="animation-duration: 0.2s;">
+        </div>
+        <div id="cell5"onclick="clickerino(5)"class="animated fadeInRight"style="animation-duration: 0.7s;">
+        </div>
+        <div id="cell6"onclick="clickerino(6)"class="animated bounceInLeft"style="animation-duration: 1s;">
+        </div>
+        <div id="cell7"onclick="clickerino(7)" class="animated fadeInUp"style="animation-duration: 0.9s;">
+        </div>
+        <div id="cell8"onclick="clickerino(8)"class="animated bounceInRight"style="animation-duration: 0.8s;">
+        </div>
+      </div>
+      <div class="footer">CSS grid, JavaScript and <a href="https://cdnjs.com/libraries/animate.css/" target="_blank">animate.css</a><br>
+    	Code on <a href="https://github.com/Flamerinus/3enraya" target="_blank">GitHub</a>.</div>
   </div>
 </div>
 </body>
