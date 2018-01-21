@@ -4,122 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script type="text/javascript" src="sketch2.js"></script>
+  <title>Tic-Tac-Toe</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
-  <title id="title">3 en raya</title>
-  <style>
-    .container{
-      display:flex;
-      width: 100%;
-      justify-content: center;
-    }
-    .container *{
-box-sizing: border-box;
-    }
-    .wrapper{
-      padding: 1em;
-      display:grid;
-      height: min-content;
-      width: min-content;
-      justify-items: center;
-      align-content: center;
-      grid-auto-columns: 1fr;
-      background-color: #999683;
-      grid-template-areas: "gametitle"
-                           "texto"
-                           "game"
-                           "footer"
-      }
-    .game{
-      background-color: #f9bd03;
-      display: grid;
-      grid-gap: 16px;
-      grid-template-columns: 1fr 1fr 1fr;
-      width: min-content;
-      height: min-content;
-      grid-area: game;
-      }
-    .game > div{
-      text-align: center;
-      background-color: #999683;
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
-      font-family: sans-serif;
-      font-size: 100px;
-      }
-
-    .gametitle{
-      background-color: #f9bd03;
-      grid-area: gametitle;
-      text-align: center;
-      line-height:75px;
-      width: 100%;
-      font-family: sans-serif;
-      font-size: 50px;
-      height: 75px;
-    }
-    .texto{
-      background-color: #e34a06;
-      height: min-content;
-      grid-area: texto;
-      text-align: center;
-      font-family: sans-serif;
-      font-size: 30px;
-      height: auto;
-      width: 100%;
-      padding: 10px;
-      margin: 10px;
-    }
-    #trem{
-      animation-iteration-count: 3;
-      animation-duration: 1s;
-    }
-    .footer{
-      grid-area: footer;
-      background-color: #31cce8;
-      height: min-content;
-      font-family: sans-serif;
-      width: 100%;
-      font-size: auto;
-      padding: 10px;
-      margin: 10px;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+
     <div class="wrapper">
-        <div class="gametitle">
-    Tic-Tac-Toe
+      <div class="gametitle">
+        Tic-Tac-Toe
       </div>
       <div class="texto" id="texto">
-    <div id="trem">Play!</div>
+        <div id="trem">Play!</div>
       </div>
       <div class="game">
-        <div id="cell0"onclick="clickerino(0)" class="animated bounceInLeft"style="animation-duration: 0.4s;">
+        <div id="cell0"onclick="clickerino(0)" class="cell">
         </div>
-        <div id="cell1"onclick="clickerino(1)"class="animated fadeInDown"style="animation-duration: 0.5s;">
+        <div class="vline animated fadeInUp"id="line0"></div>
+        <div id="cell1"onclick="clickerino(1)"class="cell">
         </div>
-        <div id="cell2"onclick="clickerino(2)"class="animated bounceInRight"style="animation-duration: 0.6s;">
+        <div class="vline animated fadeInDown"id="line1"></div>
+        <div id="cell2"onclick="clickerino(2)"class="cell">
         </div>
-        <div id="cell3"onclick="clickerino(3)"class="animated fadeInLeft"style="animation-duration: 0.3s;">
+        <div class="hline animated rotateInDownRight"id="hline1"></div>
+        <div id="cell3"onclick="clickerino(3)"class="cell">
         </div>
-        <div id="cell4"onclick="clickerino(4)"class="animated zoomIn"style="animation-duration: 0.2s;">
+        <div class="vline animated rotateIn"id="line2"></div>
+        <div id="cell4"onclick="clickerino(4)"class="cell">
         </div>
-        <div id="cell5"onclick="clickerino(5)"class="animated fadeInRight"style="animation-duration: 0.7s;">
+        <div class="vline animated rotateIn"id="line3"></div>
+        <div id="cell5"onclick="clickerino(5)"class="cell">
         </div>
-        <div id="cell6"onclick="clickerino(6)"class="animated bounceInLeft"style="animation-duration: 1s;">
+        <div class="hline animated rotateInUpLeft"id="hline0"></div>
+        <div id="cell6"onclick="clickerino(6)"class="cell">
         </div>
-        <div id="cell7"onclick="clickerino(7)" class="animated fadeInUp"style="animation-duration: 0.9s;">
+        <div class="vline animated fadeInUp"id="line4"></div>
+        <div id="cell7"onclick="clickerino(7)" class="cell">
         </div>
-        <div id="cell8"onclick="clickerino(8)"class="animated bounceInRight"style="animation-duration: 0.8s;">
+        <div class="vline animated fadeInDown"id="line5"></div>
+        <div id="cell8"onclick="clickerino(8)"class="cell">
         </div>
       </div>
-      <div class="footer">CSS grid, JavaScript and <a href="https://cdnjs.com/libraries/animate.css/" target="_blank">animate.css</a><br>
-    	Code on <a href="https://github.com/Flamerinus/3enraya" target="_blank">GitHub</a>.</div>
+      <div class="footer">CSS grid, JavaScript and <a                       href="https://cdnjs.com/libraries/animate.css/" target="_blank">animate.css</a><br>
+      Code on <a href="https://github.com/Flamerinus/3enraya" target="_blank">GitHub</a>.</div>
   </div>
-</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script src="sketch2.js"></script>
 </body>
 </html>

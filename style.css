@@ -1,0 +1,90 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: #31cce8;
+  color:#000000;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  }
+
+
+.wrapper{
+  display:grid;
+  grid-auto-flow:column;
+  grid-template-areas: "gametitle"
+                       "texto"
+                       "game"
+                       "footer";
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.7);
+  background-color: #999683;
+  padding: 10px;
+  width: max-content;
+  height: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.game{
+  display: grid;
+  grid-auto-columns: 100px 10px 100px 10px 100px;
+  width: 320px;
+  height: 320px;
+  justify-self: center;
+  grid-area: game;
+  }
+.cell{
+  text-align: center;
+  background-color: #999683;
+  width:100px;
+  height:100px;
+  line-height:100px;
+  font-family:sans-serif;
+  font-size:100px;
+  }
+  /*I set attributes for the horizontal line like this, because in order to reset the CSS animation I have to take the class away from the div and then place it back after 100ms and in that time the layout breaks because the line loses it's attributes (height and grid-column span). The vertical lines can lose their attributes as they don't have any crucial role in the rows of the grid. This id^ tag applies to all elements whose id starts with "hline"*/
+  [id^="hline"] {
+    background: #f9bd03;
+    height: 10px;
+    grid-column: 1/6;
+  }
+
+  .vline{
+    background: #f9bd03;
+    width: 10px;
+    }
+  .gametitle{
+    background-color: #f9bd03;
+    grid-area: gametitle;
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .texto{
+    background-color: #e34a06;
+    grid-area: texto;
+    text-align: center;
+    font-size: 1.5em;
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  #trem{
+    animation-iteration-count: 3;
+    animation-duration: 1s;
+  }
+  .footer{
+    grid-area: footer;
+    background-color: #31cce8;
+    height: max-content;
+    width: 100%;
+    font-size:1em;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }

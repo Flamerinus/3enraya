@@ -1,10 +1,5 @@
 "use strict"
-var turno= 1;
-var element;
-var a = 1;
-var t;
-var done;
-var tremble;
+var turno= 1, element, a = 1, t, done, tremble;
 //funcion constructora de celdas
 function Cell(empty,value){
 	this.e=empty;
@@ -14,32 +9,37 @@ var juego=[];//array vacio donde meto las 9 celdas
 for(var i=0;i<9;i++){
 	juego.push(new Cell(true,"n"));
 }
-
-
-
 /*funcion que pone los valores de vacio a	verdadero en todas las celdas, los
 colores, turnos etc, */
 function resetear() {
-			done= false;
-	 		t = document.getElementById("texto");
-			juego=[];
-			for(var x=0;x<9;x++){
-			let elemid = document.getElementById("cell"+x);
-			juego.push(new Cell(true,"n"));
-			elemid.innerHTML = "";
-			let cl = elemid.className;
-			elemid.className="";
-			setTimeout(function(){elemid.className=cl;},100);
-					}
-					turno = 1;
-					tremble.innerHTML= deftext;
-					tremble.className="";
-					t.style.backgroundColor="#e34a06";
+	done= false;
+	 t = document.getElementById("texto");
+	for(var x=0;x<9;x++){
+		let elemid = document.getElementById("cell"+x);
+		juego[x].e = true;
+		juego[x].v = "";
+		elemid.innerHTML = "";
+	}
+	turno = 1;
+	tremble.innerHTML= deftext;
+	tremble.className="";
+	t.style.backgroundColor="#e34a06";
+	for(var p=0;p<6;p++){
+		let elemclass = document.getElementById("line"+p);
+		let cl = elemclass.className;
+		elemclass.className="";
+		setTimeout(function(){elemclass.className=cl;},100);
+	}
+	for(var p=0;p<2;p++){
+		let elemclass = document.getElementById("hline"+p);
+		let cl = elemclass.className;
+		elemclass.className="";
+		setTimeout(function(){elemclass.className=cl;},100);
+	}
 }
 function clickerino(n){
 	tremble = document.getElementById("trem");
 	t = document.getElementById("texto");
-
 	element = document.getElementById("cell"+n);
 	if(juego[n].e==true && !done){
 		switch(turno){
@@ -93,7 +93,6 @@ function clickerino(n){
 		}
 	}
 }
-
 var deftext = `Play!`;
 var xtext = `Player 1 wins!`;
 var otext = `Player 2 wins!`;
