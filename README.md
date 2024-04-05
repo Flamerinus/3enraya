@@ -1,6 +1,5 @@
 # Tres en raya
 
-[Click here to see it in action.](https://flamerinus.github.io/3enraya/)
 ___
 This is the popular Tic-Tac-Toe (X & O) game, created with the use of the CSS grid and JavaScript. [Animate.css](https://cdnjs.com/libraries/animate.css/) was used to animate the tiles and text.
 (Work in progress)
